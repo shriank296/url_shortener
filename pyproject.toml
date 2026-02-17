@@ -1,0 +1,15 @@
+[project]
+name = "url-shortener"
+version = "0.1.0"
+description = "This project is supposed to work as url shortener"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "fastapi[standard]>=0.129.0",
+    "sqlalchemy>=2.0.46",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.0.2",
+]
