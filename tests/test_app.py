@@ -17,8 +17,8 @@ def test_create_short_url(client):
         json={"original_url": "http://something.com"},
     )
     data = result.json()
-    assert result.status_code == 201, data
-    assert "short_code" in data
+    assert result.status_code == 201, data  # noqa: PLR2004, S101
+    assert "short_code" in data  # noqa: S101
 
 
 @pytest.fixture
@@ -28,7 +28,7 @@ def insert_record(db_session):
     db_session.commit()
 
 
-def test_get_short_code(insert_record, client):
+def test_get_short_code(insert_record, client):  # noqa: ARG001
     response = client.get("/test123", follow_redirects=False)
-    assert response.status_code in (307, 308)
-    assert response.headers["location"] == "http://test.com"
+    assert response.status_code in (307, 308)  # noqa: S101
+    assert response.headers["location"] == "http://test.com"  # noqa: S101

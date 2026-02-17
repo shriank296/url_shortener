@@ -37,7 +37,7 @@ def db_session():
 
 
 @pytest.fixture
-def client(db_session, create_tables):
+def client(db_session, create_tables):  # noqa: ARG001
     test_client = TestClient(app)
 
     def get_override_db():
